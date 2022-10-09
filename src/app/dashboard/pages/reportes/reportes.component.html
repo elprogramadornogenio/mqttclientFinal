@@ -1,0 +1,66 @@
+<form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="consultar()">
+    <div *ngIf="cargando" fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="50%">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center" class="title">
+                    <mat-card-title>Consultar Sensor</mat-card-title>
+                </mat-card-header>
+                <mat-divider inset></mat-divider>
+                <mat-card-content style="margin: 15px;">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ingrese la fecha</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                            <input matStartDate formControlName="fecha_ini" placeholder="fecha inicial">
+                            <input matEndDate formControlName="fecha_final" placeholder="fecha final">
+                        </mat-date-range-input>
+                        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions fxLayoutAlign="center" fxLayout="row" fxLayoutGap="10px">
+                    <button fxFlex="15%" mat-fab color="primary" type="submit">
+                        <mat-icon>search</mat-icon>
+                    </button>
+
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</form>
+
+<div *ngIf="!cargando">
+    <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px grid">
+        <app-consultar-datos-fecha [fechaInicial]="fechaInicial" [fechaFinal]="fechaFinal" fxFlex="100%"
+            [datos]="datos"></app-consultar-datos-fecha>
+        <app-consultar-dato-mayor fxFlex="50%" [dato]="datoMayor"></app-consultar-dato-mayor>
+        <app-consultar-dato-menor fxFlex="50%" [dato]="datoMenor"></app-consultar-dato-menor>
+        <!-- <div>
+            <button mat-raised-button *ngIf="id_Sensor" [routerLink]="['/dashboard/sensor', id_Sensor]" style="margin: 30px ; float: right;"
+                color="warn">Regresar</button>
+        </div> -->
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px grid">
+        <app-consultar-dato-promedio fxFlex="50%" [dato]="datoPromedio"></app-consultar-dato-promedio>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px grid">
+        <app-mostrar-datos-polar fxFlex="100%" [fechaInicial]="fechaInicial" [fechaFinal]="fechaFinal"
+            [promedio]="datoPromedio" [mayor]="datoMayor" [menor]="datoMenor"></app-mostrar-datos-polar>
+    </div>
+    <div *ngIf="(id_Sensor.length===0)" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px grid">
+        <app-mostrar-datos-barras-mayor fxFlex="100%" [fechaInicial]="fechaInicial" [fechaFinal]="fechaFinal"
+            [datos]="mayorIds"></app-mostrar-datos-barras-mayor>
+        <app-mostrar-datos-barras-menor fxFlex="100%" [fechaInicial]="fechaInicial" [fechaFinal]="fechaFinal"
+            [datos]="menorIds"></app-mostrar-datos-barras-menor>
+        <app-mostrar-datos-barras-promedio fxFlex="100%" [fechaInicial]="fechaInicial" [fechaFinal]="fechaFinal"
+            [datos]="promediosIds"></app-mostrar-datos-barras-promedio>
+    </div>
+    <div *ngIf="(id_Sensor.length!==0)" fxLayout="row wrap">
+        <button mat-raised-button *ngIf="id_Sensor" [routerLink]="['/dashboard/sensor', id_Sensor]"
+            style="margin: 30px ; float: right;" color="warn">Regresar</button>
+    </div>
+</div>

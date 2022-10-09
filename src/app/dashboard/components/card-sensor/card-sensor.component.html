@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{isensor.nombre}}</mat-card-title>
+        <span class="spacer"></span>
+        <mat-slide-toggle class="example-margin" color="accent" [checked]="checkear" (change)="cambioEstado()">
+        </mat-slide-toggle>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <div class="cursor" fxLayout="row" fxLayoutAlign="center" [routerLink]="['/dashboard/sensor', isensor._id]">
+        <h1
+            style="text-align: center; margin-top: 50px; margin-left: 50px; margin-bottom: 50px; margin-right: 10px; font-size: 100px;">
+            {{dato}}</h1>
+        <h2 style="margin-top: 50px; font-size: 20px;">ppm</h2>
+    </div>
+    <mat-divider inset></mat-divider>
+    <mat-card-content style="margin: 15px;">
+        <p><b>Id del Sensor: </b>{{isensor._id}}</p>
+        <p><b>Tipo de Sensor: </b>{{isensor.tipo}}</p>
+        <p><b>Tópico mqtt del Sensor: </b>{{isensor.topico}}</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions style="text-align: center;">
+        <button mat-fab [routerLink]="['/dashboard/editar', isensor._id]" style="margin-right: 10px ;" color="primary"><mat-icon>edit</mat-icon></button>
+        <button mat-fab (click)="eliminarSensor()" style="margin-right: 10px ;" color="warn"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+</mat-card>

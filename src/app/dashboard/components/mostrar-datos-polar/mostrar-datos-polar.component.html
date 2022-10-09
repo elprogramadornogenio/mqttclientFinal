@@ -1,0 +1,13 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{titulo}}</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <div style="display: block;">
+            <canvas baseChart [datasets]="polarAreaChartDatasets" [labels]="polarAreaChartLabels"
+                [legend]="polarAreaLegend" [options]="polarAreaOptions" [type]="'polarArea'">
+            </canvas>
+        </div>
+    </mat-card>
+</div>

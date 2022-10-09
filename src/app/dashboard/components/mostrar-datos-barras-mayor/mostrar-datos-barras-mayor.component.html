@@ -1,0 +1,15 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{titulo}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+        <div style="display: block;">
+            <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
+                [legend]="barChartLegend" [type]="'bar'">
+            </canvas>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,22 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Dato Promedio</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+
+        <div class="cursor" fxLayout="row" fxLayoutAlign="center">
+            <h1
+                style="text-align: center; margin-top: 50px; margin-left: 50px; margin-bottom: 50px; margin-right: 10px; font-size: 100px;">
+                {{dato[0].avg}}</h1>
+            <h2 style="margin-top: 50px; font-size: 20px;">ppm</h2>
+        </div>
+        <mat-divider inset></mat-divider>
+        <mat-card-content style="margin: 15px;">
+            <p><b>Fecha Inicial: </b>{{fechaIni}}</p>
+            <p><b>Fecha Final: </b>{{fechaFec}}</p>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

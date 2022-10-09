@@ -1,0 +1,19 @@
+<h1>{{listado}}Listado de Sensores</h1>
+
+<mat-divider></mat-divider>
+
+<br>
+
+
+
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px grid" *ngIf="sensores.length!==0; else noDatos">
+    <div fxFlex="45%" *ngFor="let sensor of sensores">
+        <app-card-sensor [isensor]="sensor" [id_Usuario]="id_Usuario"></app-card-sensor>
+        <!-- <app-heroe-tarjetas [heroe]="heroe"></app-heroe-tarjetas> -->
+    </div>
+</div>
+<ng-template #noDatos>
+    <div fxLayout="row wrap" fxLayoutAlign="center">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

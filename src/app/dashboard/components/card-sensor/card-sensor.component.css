@@ -1,0 +1,12 @@
+mat-card {
+  margin-top: 10px;
+}
+
+.title {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.cursor {
+  cursor: pointer;
+}

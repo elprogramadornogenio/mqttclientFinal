@@ -1,0 +1,53 @@
+<form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="tareaSensor()">
+    <div fxLayout="row" fxLayoutAlign="center">
+        <div fxFlex="50%" *ngIf="!cargando; else Cargando">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center" class="title">
+                    <mat-card-title *ngIf="editar; else noEditarTitle">Editar Sensor</mat-card-title>
+                    <ng-template #noEditarTitle>
+                        <mat-card-title>Agregar Sensor</mat-card-title>
+                    </ng-template>
+                </mat-card-header>
+                <mat-divider inset></mat-divider>
+                <mat-card-content style="margin: 15px;">
+                    <mat-form-field class="full-width">
+                        <mat-label>Id del Usuario</mat-label>
+                        <input formControlName="id_Usuario" matInput type="text">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput placeholder="Nombre" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Tipo</mat-label>
+                        <input formControlName="tipo" matInput placeholder="Tipo" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Topico</mat-label>
+                        <input formControlName="topico" matInput placeholder="Topico" type="text">
+                    </mat-form-field>
+
+                </mat-card-content>
+                <mat-divider inset></mat-divider>
+                <mat-card-actions fxLayoutAlign="center" fxLayout="row" fxLayoutGap="10px">
+                    <button *ngIf="!editar; else agregarSensor" fxFlex="15%" mat-fab color="primary" type="submit">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <ng-template #agregarSensor>
+                        <button fxFlex="15%" mat-fab color="primary" type="submit">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </ng-template>
+                    
+                    <button fxFlex="15%" mat-fab color="warn" type="button" routerLink="/dashboard/listado">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <ng-template #Cargando>
+            <mat-progress-spinner></mat-progress-spinner>
+        </ng-template>
+        
+    </div>
+</form>

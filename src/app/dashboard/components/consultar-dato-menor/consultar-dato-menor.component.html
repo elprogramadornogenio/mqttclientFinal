@@ -1,0 +1,22 @@
+<div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Dato de Menor Valor</mat-card-title>
+        </mat-card-header>
+        <mat-divider inset></mat-divider>
+
+        <div class="cursor" fxLayout="row" fxLayoutAlign="center">
+            <h1
+                style="text-align: center; margin-top: 50px; margin-left: 50px; margin-bottom: 50px; margin-right: 10px; font-size: 100px;">
+                {{dato[0].dato}}</h1>
+            <h2 style="margin-top: 50px; font-size: 20px;">ppm</h2>
+        </div>
+
+        <mat-divider inset></mat-divider>
+        <mat-card-content style="margin: 15px;">
+            <p><b>Id del Sensor: </b>{{dato[0].id_Sensor}}</p>
+            <p><b>Fecha: </b>{{dato[0].fecha}}</p>
+        </mat-card-content>
+
+    </mat-card>
+</div>
