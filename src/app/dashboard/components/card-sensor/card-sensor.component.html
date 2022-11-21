@@ -2,8 +2,8 @@
     <mat-card-header>
         <mat-card-title>{{isensor.nombre}}</mat-card-title>
         <span class="spacer"></span>
-        <mat-slide-toggle class="example-margin" color="accent" [checked]="checkear" (change)="cambioEstado()">
-        </mat-slide-toggle>
+        <!-- <mat-slide-toggle class="example-margin" color="accent" [checked]="checkear" (change)="cambioEstado()">
+        </mat-slide-toggle> -->
     </mat-card-header>
     <mat-divider inset></mat-divider>
     <div class="cursor" fxLayout="row" fxLayoutAlign="center" [routerLink]="['/dashboard/sensor', isensor._id]">
@@ -20,7 +20,14 @@
     </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions style="text-align: center;">
-        <button mat-fab [routerLink]="['/dashboard/editar', isensor._id]" style="margin-right: 10px ;" color="primary"><mat-icon>edit</mat-icon></button>
-        <button mat-fab (click)="eliminarSensor()" style="margin-right: 10px ;" color="warn"><mat-icon>delete</mat-icon></button>
+        <button mat-fab [routerLink]="['/dashboard/editar', isensor._id]" style="margin-right: 10px ;" color="primary">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-fab (click)="probarConexion()" style="margin-right: 10px ;" color="accent">
+            <mat-icon>verified</mat-icon>
+        </button>
+        <button mat-fab (click)="eliminarSensor()" style="margin-right: 10px ;" color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>

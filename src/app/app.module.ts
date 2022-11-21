@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { NgChartsModule } from 'ng2-charts';
 
-const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
+const config: SocketIoConfig = { url: 'https://localhost:5000', options: {} };
 
 @NgModule({
   declarations: [

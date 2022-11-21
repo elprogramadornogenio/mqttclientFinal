@@ -48,6 +48,32 @@ export class CardSensorComponent implements OnInit {
     console.log(this.checkear)
   }
 
+  probarConexion() {
+    console.log(this.isensor.topico);
+    Swal.fire({
+      icon: 'info',
+      title: `Cargando...`,
+      showConfirmButton: false
+    });
+    this.sensorService.probarConexion(this.isensor.topico).subscribe(resp => {
+      if (resp.prueba) {
+        Swal.fire({
+          icon: 'success',
+          title: `${resp.msg}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: `${resp.msg}`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    });
+  }
+
   eliminarSensor() {
     console.log(this.isensor._id!);
     this.sensorService.eliminarSensores(this.isensor._id!).subscribe(ok => {

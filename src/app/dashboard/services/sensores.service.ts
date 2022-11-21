@@ -6,6 +6,7 @@ import { IDataSensor } from '../interfaces/data-sensor';
 import { ISensor } from '../interfaces/sensor';
 import { IDato } from '../interfaces/datos';
 import { SensorResponse } from '../interfaces/sensor-response';
+import { DataProbar } from '../interfaces/data-probar';
 
 
 @Injectable({
@@ -20,6 +21,17 @@ export class SensoresService {
   private idatos: IDato[] = [];
 
   constructor(private http: HttpClient) { }
+
+  probarConexion(topico: string){
+    const payload = {
+      topico
+    };
+    return this.http.post<DataProbar>(`${this.urlBase}/conexion`, payload).pipe(
+      map((resp: DataProbar)=>{
+        return resp;
+      })
+    )
+  }
 
   agregarSensor(sensor: ISensor) {
     /* console.log(sensor); */
