@@ -27,11 +27,20 @@ export class AgregarSensorComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private sensoresService: SensoresService, private authService: AuthService, private router: Router, private activatedRouter: ActivatedRoute) {
+    
+  }
 
+  get usuario(){
+    return this.iusuario;
   }
 
   ngOnInit(): void {
-    this.iusuario = this.authService.usuario;
+
+    this.authService.observableUsuario.subscribe(usuario =>{
+      this.iusuario = usuario;
+    });
+    
+    /* this.iusuario = this.authService.usuario; */
     this.activatedRouter.params.subscribe(({ id }) => {
       if (id) {
         this.sensoresService.buscarSensor(id).subscribe((sensor: ISensor[]) => {

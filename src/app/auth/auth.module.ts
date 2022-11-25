@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordComponent } from './pages/password/password.component';
 
 
 
@@ -13,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     LoginComponent,
     MainComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordComponent
   ],
   imports: [
     CommonModule,

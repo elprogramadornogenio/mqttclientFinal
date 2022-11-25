@@ -5,6 +5,8 @@ import { ListarSensoresComponent } from './pages/listar-sensores/listar-sensores
 import { InfoSensorComponent } from './pages/info-sensor/info-sensor.component';
 import { AgregarSensorComponent } from './pages/agregar-sensor/agregar-sensor.component';
 import { ReportesComponent } from './pages/reportes/reportes.component';
+import { EditComponent } from './pages/edit/edit.component';
+import { PasswordComponent } from './pages/password/password.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
       {
         path: 'agregar',
         component: AgregarSensorComponent
+      },
+      {
+        path: 'editar',
+        component: EditComponent
+      },
+      {
+        path: 'password',
+        component: PasswordComponent
       },
       {
         path: 'editar/:id',

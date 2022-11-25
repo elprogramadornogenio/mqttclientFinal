@@ -1,3 +1,11 @@
 .container {
     margin: 10px;
 }
+
+.imagen {
+    width: 45px;
+    height: 45px;
+    margin: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-<form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="tareaSensor()">
+<form autocomplete="off" *ngIf="usuario!=null" [formGroup]="miFormulario" (ngSubmit)="tareaSensor()">
     <div fxLayout="row" fxLayoutAlign="center">
         <div fxFlex="50%" *ngIf="!cargando; else Cargando">
             <mat-card>

@@ -19,6 +19,8 @@ import { MostrarDatosPolarComponent } from './components/mostrar-datos-polar/mos
 import { MostrarDatosBarrasMenorComponent } from './components/mostrar-datos-barras-menor/mostrar-datos-barras-menor.component';
 import { MostrarDatosBarrasMayorComponent } from './components/mostrar-datos-barras-mayor/mostrar-datos-barras-mayor.component';
 import { MostrarDatosBarrasPromedioComponent } from './components/mostrar-datos-barras-promedio/mostrar-datos-barras-promedio.component';
+import { EditComponent } from './pages/edit/edit.component';
+import { PasswordComponent } from './pages/password/password.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { MostrarDatosBarrasPromedioComponent } from './components/mostrar-datos-
     MostrarDatosPolarComponent,
     MostrarDatosBarrasMenorComponent,
     MostrarDatosBarrasMayorComponent,
-    MostrarDatosBarrasPromedioComponent
+    MostrarDatosBarrasPromedioComponent,
+    EditComponent,
+    PasswordComponent
   ],
   imports: [
     CommonModule,

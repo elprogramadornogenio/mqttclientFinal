@@ -6,4 +6,5 @@ export interface AuthResponse {
     token?: string;
     msg?: string;
     email?: string;
+    imagen?: string;
 }

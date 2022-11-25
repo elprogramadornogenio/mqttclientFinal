@@ -13,7 +13,7 @@
                 <mat-icon mat-list-icon>add</mat-icon>
                 <span> Crear Sensor </span>
             </a>
-            <a [routerLink]="['/dashboard/listado', usuario.uid]" mat-list-item>
+            <a *ngIf="usuario!=null" [routerLink]="['/dashboard/listado', usuario.uid]" mat-list-item>
                 <mat-icon mat-list-icon>sensor_occupied</mat-icon>
                 <span> Mis Sensores </span>
             </a>
@@ -36,10 +36,29 @@
             <mat-icon>menu</mat-icon>
         </button>
         <span class="spacer"></span>
-        <span style="margin-right: 10px;">{{usuario.email}}</span>
-        <button mat-raised-button color="accent" (click)="logout()">
+        <span *ngIf="usuario!=null" style="margin-right: 10px;">{{usuario.nombre}}</span>
+        <img *ngIf="usuario!=null" [mat-menu-trigger-for]="menu" #menuTrigger="matMenuTrigger"
+            (mouseover)="menuTrigger.openMenu()" class="imagen" [src]="usuario.imagen" [alt]="usuario.nombre">
+
+
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <button routerLink="/dashboard/editar" type="button" mat-menu-item>
+                <mat-icon>edit</mat-icon>
+                <span>Perfil de Usuario</span>
+            </button>
+            <button routerLink="/dashboard/password" type="button" mat-menu-item>
+                <mat-icon>password</mat-icon>
+                <span>Cambiar password</span>
+            </button>
+            <button type="button" (click)="logout()" mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+
+        <!-- <button mat-raised-button color="accent" (click)="logout()">
             Logout
-        </button>
+        </button> -->
     </mat-toolbar>
 
     <div class="container">
